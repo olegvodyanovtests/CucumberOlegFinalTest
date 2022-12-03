@@ -1,14 +1,15 @@
-package solution.steps;
+package steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.junit.Assert;
-import solution.model.pages.*;
+import pages.LoginPage;
+import pages.MainPage;
+import pages.SentEmailsPage;
 
-
-import static solution.steps.SolutionHooks.webDriver;
+import static steps.SolutionHooks.webDriver;
 
 @CucumberContextConfiguration
 public class SolutionStepDefs {
@@ -23,8 +24,7 @@ public class SolutionStepDefs {
 
     @When("User clicks the login button")
     public void userClicksLoginButton() {
-        loginPageObject = new LoginPage();
-        loginPageObject.getLoginPage(webDriver);
+        loginPageObject = new LoginPage(webDriver);
         loginPageObject.getLoginPopUpMenu();
     }
 
@@ -50,13 +50,11 @@ public class SolutionStepDefs {
 
     @Then("User presses submit button")
     public void userPressesSubmitButtonInPopUpWindowOnLoginPage() {
-        loginPageObject.pressSubmitButton();
+        mainPage = loginPageObject.pressSubmitButtonToLoginIntoMainPage();
     }
 
     @Then("User presses compose button on main page")
     public void userPressesComposeButtonOnMainPage() {
-        mainPage = new MainPage();
-        mainPage.getMainPage(webDriver);
         mainPage.pressComposeButton();
     }
 
@@ -73,13 +71,11 @@ public class SolutionStepDefs {
     @Then("User puts the following Text {} and presses send button")
     public void userPutsTextIntoTextAreaOnMainPage(String text) {
         mainPage.putTextIntoArea(text);
-        mainPage.pressSendButton();
+        sentEmailsPage = mainPage.pressSendButton();
     }
 
     @Then("User goes to sent emails page")
     public void userGoesToSentEmailsPage() {
-        sentEmailsPage = new SentEmailsPage();
-        sentEmailsPage.getSentEmailsPage(webDriver);
         sentEmailsPage.goesToSentEmailsPage();
     }
 

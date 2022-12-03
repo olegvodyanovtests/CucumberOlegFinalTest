@@ -1,25 +1,23 @@
-package solution.model.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.abstractions.AbstractPage;
 
 //Класс управляет страницей с отправленными письмами, в частности ищет последнее отправленное письмо
-public class SentEmailsPage {
-    private WebDriver webDriver;
+public class SentEmailsPage extends AbstractPage {
+    protected WebDriver webDriver;
     @FindBy(css = "a[title=\"Отправленные\"]")
     private WebElement sentEmailsPageButton;
     @FindBy(className = "llc_first")
     private WebElement lastSentEmailContainer;
-
-    public SentEmailsPage getSentEmailsPage(WebDriver driver) {
+    public SentEmailsPage (WebDriver driver) {
+        super(driver);
         this.webDriver = driver;
         PageFactory.initElements(driver, this);
-        return new SentEmailsPage();
     }
 
     public void goesToSentEmailsPage() {
@@ -46,9 +44,4 @@ public class SentEmailsPage {
         return lastSentEmailContainer.findElement(By.className(attribute)).getText();
     }
 
-    private void waitForElementToInteractWith(WebElement webElement) {
-        WebDriverWait explicitWait = new WebDriverWait(webDriver, 10);
-        explicitWait.until(ExpectedConditions.visibilityOf(webElement));
-        explicitWait.until(ExpectedConditions.elementToBeClickable(webElement));
-    }
 }

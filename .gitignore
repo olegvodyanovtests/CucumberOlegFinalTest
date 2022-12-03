@@ -1,3 +1,6 @@
 .idea
 /target
 task
+framework/target/
+framework/page-objects/
+framework/regression-tests/
