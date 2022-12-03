@@ -4,3 +4,5 @@ task
 framework/target/
 framework/page-objects/
 framework/regression-tests/
+page-objects/target
+regression-tests/target
