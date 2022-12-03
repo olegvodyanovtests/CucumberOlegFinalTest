@@ -1,4 +1,4 @@
-package solution.runners;
+package runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
                 "classpath:features"
         },
         glue = {
-                "solution.steps"
+                "steps"
         },
         plugin = {
                 "pretty",

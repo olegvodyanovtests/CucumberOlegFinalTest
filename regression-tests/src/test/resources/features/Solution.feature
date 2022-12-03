@@ -11,13 +11,13 @@ Feature: Send an email to recipient
     Given User opens the page https://www.mail.ru
     When User clicks the login button
     Then User sees a pop up window
-    And User enters his user name user name
+    And User enters his user name put_your_email_here
     And User presses next button
-    And User enters his password password
+    And User enters his password put_your_password_here
     And User presses submit button
     And User presses compose button on main page
-    And User puts email address recipient's address into recipient field
+    And User puts put_recepient_email_here recipient's address into recipient field
     And User puts the following Subject subject text
     And User puts the following Text body text and presses send button
     When User goes to sent emails page
-    Then User sees his last sent email with the following Subject subject text Recipient email address and Body body text
+    Then User sees his last sent email with the following Subject subject text Recipient put_recepient_email_here and Body body text

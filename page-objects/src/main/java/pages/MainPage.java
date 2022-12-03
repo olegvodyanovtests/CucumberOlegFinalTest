@@ -1,15 +1,15 @@
-package solution.model.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.abstractions.AbstractPage;
+
 //Класс управляет главной страницей котторая открывается пользователю после успешного входа в личный аккаунт
-public class MainPage {
-    private WebDriver webDriver;
+public class MainPage extends AbstractPage {
+    protected WebDriver webDriver;
     @FindBy(className = "compose-button")
     private WebElement composeButton;
     @FindBy(className = "ph-project-promo-close-icon")
@@ -23,10 +23,10 @@ public class MainPage {
     @FindBy(css = "button[data-test-id=\"send\"]")
     private WebElement sendButton;
 
-    public MainPage getMainPage(WebDriver driver) {
+    public MainPage (WebDriver driver) {
+        super(driver);
         this.webDriver = driver;
         PageFactory.initElements(driver, this);
-        return new MainPage();
     }
 
     public void pressComposeButton() {
@@ -46,17 +46,13 @@ public class MainPage {
         waitForElementToInteractWith(textBoxArea);
         textBoxArea.sendKeys(text);
     }
-    public void pressSendButton() {
+    public SentEmailsPage pressSendButton() {
         waitForElementToInteractWith(sendButton);
         sendButton.click();
+        return new SentEmailsPage(webDriver);
     }
     private void promoElementsClose(){
         waitForElementToInteractWith(promoElement);
         promoElement.click();
-    }
-    private void waitForElementToInteractWith(WebElement webElement) {
-        WebDriverWait explicitWait = new WebDriverWait(webDriver, 10);
-        explicitWait.until(ExpectedConditions.visibilityOf(webElement));
-        explicitWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 }
