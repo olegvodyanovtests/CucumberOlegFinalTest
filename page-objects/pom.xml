@@ -11,5 +11,12 @@
 <packaging>jar</packaging>
     <artifactId>page-objects</artifactId>
     <name>pageobjects</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
