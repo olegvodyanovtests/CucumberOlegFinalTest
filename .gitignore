@@ -6,3 +6,5 @@ framework/page-objects/
 framework/regression-tests/
 page-objects/target
 regression-tests/target
+framework/src/main/java/config/ConfigFile.java
+api/target/

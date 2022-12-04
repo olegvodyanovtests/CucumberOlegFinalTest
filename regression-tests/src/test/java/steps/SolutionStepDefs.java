@@ -9,8 +9,7 @@ import pages.LoginPage;
 import pages.MainPage;
 import pages.SentEmailsPage;
 
-import static steps.SolutionHooks.webDriver;
-
+import static hooks.SolutionHooks.webDriver;
 @CucumberContextConfiguration
 public class SolutionStepDefs {
     private LoginPage loginPageObject;

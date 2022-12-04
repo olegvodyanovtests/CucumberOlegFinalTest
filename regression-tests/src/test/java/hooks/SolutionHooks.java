@@ -1,4 +1,4 @@
-package steps;
+package hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SolutionHooks {
-    protected static WebDriver webDriver;
+    public static WebDriver webDriver;
 
     @Before
     public static void beforeScenario() {
