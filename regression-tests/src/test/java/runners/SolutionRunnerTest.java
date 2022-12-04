@@ -13,12 +13,13 @@ import org.springframework.test.context.ContextConfiguration;
         glue = {
                 "steps",
                 "hooks"
-        },
+        /*},
         plugin = {
                 "pretty",
                 "html:target/results.html",
-                "json:target/cucumber3.json"
+                "json:target/cucumber3.json"*/
         },
+        plugin = { "pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         dryRun = false,
         monochrome = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE

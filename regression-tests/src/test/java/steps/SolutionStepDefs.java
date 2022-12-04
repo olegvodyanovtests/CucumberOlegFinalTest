@@ -4,18 +4,27 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.spring.CucumberContextConfiguration;
+import io.qameta.allure.*;
 import org.junit.Assert;
+import org.junit.Test;
+import org.springframework.test.context.TestExecutionListener;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.SentEmailsPage;
 
 import static hooks.SolutionHooks.webDriver;
+@Epic("Web Application Regression Testing using JUnit4")
+@Feature("Login Page Tests")
 @CucumberContextConfiguration
 public class SolutionStepDefs {
     private LoginPage loginPageObject;
     private MainPage mainPage;
     private SentEmailsPage sentEmailsPage;
 
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Verify the title of Login Page")
+    @Story("Title of Login Page")
+    @Test
     @Given("User opens the page {}")
     public void userHasBrowser(String url) {
         webDriver.navigate().to(url);
