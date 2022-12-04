@@ -11,8 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
                 "classpath:features"
         },
         glue = {
-                "steps",
-                "hooks"
+                "steps"
         },
         plugin = {
                 "pretty",
@@ -25,5 +24,5 @@ import org.springframework.test.context.ContextConfiguration;
 )
 
 @ContextConfiguration
-public class SolutionRunnerTest {
+public class ApiRunnerTest {
 }

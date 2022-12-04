@@ -12,6 +12,7 @@
         <module>framework</module>
         <module>page-objects</module>
         <module>regression-tests</module>
+        <module>api</module>
     </modules>
 
     <properties>
@@ -24,6 +25,7 @@
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>5.0.3</webdrivermanager.version>
         <surefire.version>3.0.0-M5</surefire.version>
+        <rest-assured.version>4.5.1</rest-assured.version>
     </properties>
 
     <dependencies>
