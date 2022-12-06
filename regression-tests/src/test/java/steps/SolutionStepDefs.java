@@ -10,6 +10,7 @@ import pages.MainPage;
 import pages.SentEmailsPage;
 
 import static hooks.SolutionHooks.webDriver;
+
 @CucumberContextConfiguration
 public class SolutionStepDefs {
     private LoginPage loginPageObject;

@@ -8,3 +8,8 @@ page-objects/target
 regression-tests/target
 framework/src/main/java/config/ConfigFile.java
 api/target/
+.allure
+api/.allure
+framework/.allure
+page-objects/.allure
+regression-tests/.allure
